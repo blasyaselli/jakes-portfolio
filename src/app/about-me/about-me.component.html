@@ -1,0 +1,28 @@
+<p>about-me works!</p>
+
+
+Single Static
+<ul>
+  <li>I like to Cook</li>
+  <li>I like to hike</li>
+  <li> I like to golf</li>
+</ul>
+
+Multiple Static
+<ul>
+  <li>I like to Cook at Home</li>
+  <li>I like to hike at Pike Peak</li>
+  <li> I like to golf at Meadows</li>
+</ul>
+
+
+Single (with angular)
+<ul *ngFor="let item of hobbies">
+  <li>I like to {{item}}</li>
+</ul>
+
+
+Multiple (with angular)
+<ul *ngFor="let item of hobbiesWithLocation">
+  <li>I like to {{item.hobbyName}} at {{item.hobbyLocation}}</li>
+</ul>

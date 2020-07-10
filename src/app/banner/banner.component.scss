@@ -1,0 +1,31 @@
+
+:host {
+  position: relative;
+  display: block;
+}
+
+
+.forth-july {
+  background: red;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 4px;
+
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  color: white;
+  background-color: black;
+  padding: 3px;
+  width: 15px;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
