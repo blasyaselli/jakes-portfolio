@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent implements OnInit {
+
+  listOfCatFacts;
+  randomFact;
+
 
   hobbies = ['cook', 'hike', 'golf'];
   hobbiesWithLocation = [
@@ -23,9 +28,33 @@ export class AboutMeComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
+
+    this.getCatFacts().subscribe(
+      dataFromUlr => {
+        this.listOfCatFacts = dataFromUlr.all;
+        this.getRandomFact();
+      }
+    );
+  }
+
+  getCatFacts() {
+    return this.http.get('https://cat-fact.herokuapp.com/facts');
+  }
+
+  getRandomFact() {
+
+    let randomNumber = this.getRandomInt(260)
+    this.randomFact = this.listOfCatFacts[randomNumber].text;
+
+  }
+
+   getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
   }
 
 }
